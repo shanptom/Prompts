@@ -1,0 +1,31 @@
+Your task is to create a plain text file that contains a list of rename commands for scientific article PDF files.
+
+**Input Folder Path:**
+Replace `D:\Articles` with the actual full path to your folder containing the PDF files.
+`D:\Articles`
+
+**Output File Path and Name:**
+The output file should be named `rename_commands.txt` and placed in the same `D:\Articles` directory.
+
+**Detailed Steps for Each PDF File:**
+
+1.  **Iterate through PDFs:** Go through every PDF file in the `D:\Articles` folder.
+2.  **Extract Information:** For each PDF, perform the following:
+    * **Extract Publication Year (YYYY):** Identify the four-digit publication year from the article's content.
+    * **Generate Concise Article Title (short_article_title):** Create a **highly concise and descriptive title** from the article's content. This title **must** be 2-5 **keywords** long, use underscores `_` instead of spaces, and contain *only* alphanumeric characters and underscores. **Absolutely no other special characters allowed.** Example: "Deep Learning Applications" should become `Deep_Learning_Applications`.
+3.  **Format Rename Command:** Construct a `ren` command for each file using the full paths and double quotes:
+    `ren "Full\Path\To\Old\FileName.pdf" "Full\Path\To\New\FileName.pdf"`
+    Where `Full\Path\To\Old\FileName.pdf` is the original full path and filename, and `Full\Path\To\New\FileName.pdf` is the desired new full path and filename using the format `YYYY_short_article_title.pdf`.
+4.  **Write to File:** Append each generated `ren` command to the `rename_commands.txt` file, with each command on a new line.
+
+**Example of Desired Command Format in `rename_commands.txt`:**
+
+ren "D:\Articles\original_article_filename.pdf" "D:\Articles\2024_AI_Impact_Healthcare.pdf"
+ren "D:\Articles\another_document.pdf" "D:\Articles\2023_Quantum_Computing_Review.pdf"
+
+
+**Error Handling and Reporting:**
+If you encounter any PDF file that you cannot read, extract a year from, or generate a valid `short_article_title` for, **do not include it in the `rename_commands.txt` file.** Instead, report the original filename and the reason it was skipped.
+
+**Final Confirmation:**
+Once all files in the specified folder have been processed and the `rename_commands.txt` file has been created, 
