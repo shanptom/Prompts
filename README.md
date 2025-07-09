@@ -1,4 +1,4 @@
-Prompts used in AI tools for repetitve tasks
+Prompts used in AI tools for repetitive tasks
 
 ```bash
 cd /mnt/d/AIAgents/lba/
