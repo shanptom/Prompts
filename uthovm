@@ -1,0 +1,21 @@
+ssh user@192.0.1.2.3
+
+sudo apt update && sudo apt upgrade -y
+sudo apt install xfce4 xfce4-goodies xrdp -y
+
+
+echo "xfce4-session" > ~/.xsession
+sudo systemctl restart xrdp
+
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb -y
+
+# Create the user
+sudo adduser banker
+
+# Give the user 'sudo' powers (so you can still install things if needed)
+sudo usermod -aG sudo banker
+
+# Tell the server this user can use the Desktop
+echo "xfce4-session" > /home/banker/.xsession
+sudo chown banker:banker /home/banker/.xsession
